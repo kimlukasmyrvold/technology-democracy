@@ -1,0 +1,251 @@
+/* Importing google font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+body {
+    --bg: #1e1e1e;
+    --bg-inv: #e2e2e2;
+    --nav-bg: #2d2d2d;
+    --txt: #e2e2e2;
+    --icon: invert(100%) sepia(1%) saturate(3427%) hue-rotate(165deg) brightness(120%) contrast(77%);
+}
+
+body.light {
+    --bg: #e2e2e2;
+    --bg-inv: #2e2e2e;
+    --nav-bg: ;
+    --txt: #2e2e2e;
+    --icon: invert(11%) sepia(1%) saturate(0%) hue-rotate(49deg) brightness(97%) contrast(97%);
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+.block {
+    display: block !important;
+}
+
+.flex {
+    display: flex !important;
+}
+
+svg {
+    fill: currentColor;
+    vertical-align: middle;
+}
+
+button {
+    background: none;
+    cursor: pointer;
+}
+
+@keyframes animation {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 100vh;
+    background: var(--bg);
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    text-decoration: none;
+    color: var(--txt);
+    
+    border: none;
+    outline: none;
+    appearance: none;
+
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+    list-style-type: none;
+}
+
+
+/* Navbar */
+.navbar {
+    background: var(--nav-bg);
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, .5);
+}
+
+.navbar .overlay {
+    display: block;
+    height: 100vh;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 999;
+}
+
+.navbar .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 1em;
+    height: 50px;
+
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar .navbar-container .navigation {
+    display: flex;
+    animation: animation 400ms ease-out;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar .navbar-container .navigation li {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.navbar .navbar-container .navigation .navbar-img {
+    height: 40px;
+    width: 40px;
+    margin-right: .5em;
+    filter: var(--icon);
+}
+
+.navbar .navbar-container .navigation a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+
+    font-size: 1.3rem;
+
+    position: relative;
+    white-space: nowrap;
+}
+
+.navbar .navbar-container .navigation a:hover {
+    text-decoration: none;
+}
+
+.navbar .navbar-container .navigation a::after {
+    content: '';
+    background-color: var(--bg-inv);
+
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+
+    transform: scaleX(0);
+    transform-origin: bottom center;
+    transition: transform 0.25s ease-out;
+}
+
+.navbar .navbar-container .navigation a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom center;
+}
+
+@media (max-width: 750px) {
+    .navbar .navbar-container {
+        padding: 0 .5em;
+    }
+    
+    .navbar .navbar-container .navigation .navbar-img {
+        display: none;
+    }
+}
+
+.navbar .navbar-container .navigation-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.navbar .navbar-container .navigation-buttons li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.navbar .navbar-container .navigation-buttons li>button {
+    height: 50px;
+    width: 50px;
+}
+
+.navbar .navbar-container .navigation-buttons .appearance-drop,
+.navbar .navbar-container .navigation-buttons .language-drop {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 140px;
+
+    margin: .2em 0;
+    padding: .5em .5em;
+    border-radius: 10px;
+
+    background: var(--nav-bg);
+    box-shadow: 5px 5px 23px 1px rgba(0, 0, 0, .67);
+
+    animation: animation 400ms ease-out;
+}
+
+.navbar .navbar-container .navigation-buttons .appearance-drop button,
+.navbar .navbar-container .navigation-buttons .language-drop button {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 100%;
+    padding: .3em 0;
+
+    font-size: 1.2rem;
+}
+
+.navbar .navbar-container .navigation-buttons .appearance-drop button svg,
+.navbar .navbar-container .navigation-buttons .language-drop button svg {
+    margin-right: .4em;
+}
+
+.navbar .navbar-container .navigation-buttons .appearance-drop button#dark-theme-btn svg {
+    margin-left: 4.5px;
+    margin-right: 12px;
+}
+
+/* End of navbar styling */
+
+
+main {
+    flex: 1;
+    padding: 1em 1.5em;
+}
