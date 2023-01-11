@@ -39,50 +39,17 @@ function theme_btn_dark() {
 // Navbar
 const overlay = document.querySelector('.overlay');
 
-const menu_btn = document.querySelector('.hamburger');
 const appearance_btn = document.querySelector('.appearance');
-
-const appearance_drop = document.querySelector('.appearance-drop');
-
-
-let navigation_open = false;
-let appearance_open = false;
-
+const appearance_drop = document.querySelector('.appearance-drop')
 
 overlay.addEventListener('click', function () {
     appearance_drop.classList.add('hidden');
-    appearance_open = false;
-
     overlay.classList.add('hidden');
 });
-
 
 appearance_btn.addEventListener('click', () => {
-    if (appearance_open === false) {
-        appearance_open = true;
-        appearance_drop.classList.remove('hidden');
-
-        menu_btn.classList.remove('is-active');
-        navigation.classList.remove('flex');
-
-        overlay.classList.remove('hidden');
-    }
-    else {
-        appearance_open = false
-        appearance_drop.classList.add('hidden');
-
-        overlay.classList.add('hidden');
-    };
-});
-
-menu_btn.addEventListener('click', function () {
-    menu_btn.classList.toggle('is-active');
-    navigation.classList.toggle('flex');
-
-    appearance_open = false
-    appearance_drop.classList.add('hidden');
-
-    overlay.classList.add('hidden');
+    appearance_drop.classList.toggle('hidden');
+    overlay.classList.toggle('hidden');
 });
 
 // End of navbar
