@@ -60,6 +60,10 @@ body {
     display: flex !important;
 }
 
+.underline {
+    text-decoration: underline;
+}
+
 svg {
     fill: var(--bg-inv);
     vertical-align: middle;
